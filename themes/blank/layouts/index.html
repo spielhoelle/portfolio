@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main>
+	<h1>{{ with .Site.GetPage "section" "skills" }}{{ .Title }}{{ end }}</h1>
+	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+	{{ range $paginator.Pages }}
+	{{ .Render "summary" }}
+	{{ end }}
+	<hr/>
+	
+	<h1>{{ with .Site.GetPage "section" "projects" }}{{ .Title }}{{ end }}</h1>
+	{{ range ( where .Site.RegularPages "Type" "project" ) }}
+	<div>
+		<a href="{{ .Title }}">{{ .Title }}</a>
+		<p>{{.Content}}</p>
+	</div>
+	{{end}}
+	<hr/>
+
+</main>
+<a href="/contact">Contact</a>
+{{ end }}
