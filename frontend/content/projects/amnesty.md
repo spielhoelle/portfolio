@@ -1,7 +1,7 @@
 ---
 title: "Amnesty"
 date: 2022-08-18T21:35:52+09:00
-draft: true
+draft: false
 type: "project"
 img: "amnesty-project.jpg"
 link: "http://nil-food.de"

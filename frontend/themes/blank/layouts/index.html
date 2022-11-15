@@ -49,11 +49,14 @@
 	</section>
 
 	<div id="skills" class="skill-group container">
+		
 		<h2>{{ with .Site.GetPage "section" "skills" }}{{ .Title }}{{ end }}</h2>
 		<div class="row">
 			{{ range ( where .Site.RegularPages "Type" "skills" ) }}
+			<!-- {{ $paginator := .Paginate (where .Data.Pages "Type" "skills") }} -->
+			<!-- {{ $paginator := .Paginate ( where .Site.RegularPages "Type" "skills" ) }} -->
 			{{ .Render "summary" }}
-			{{ end }}
+			{{end}}
 		</div>
 	</div>
 
