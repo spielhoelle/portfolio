@@ -1,28 +1,37 @@
 $green-bright: #27ae60;
-$screen-xs-max: 576px;
-$screen-sm-max: 768px;
+$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
 $black: #000;
+
 body {
-	background-color: #333;
-	color: white;
+  background-color: #333;
+  color: white;
 }
+
 a {
-	color: $green-bright;
+  color: $green-bright;
 }
+
 .hexagon {
   overflow: hidden;
   visibility: hidden;
+
   ul.slide & {
     transform: rotate(120deg);
   }
+
   cursor: pointer;
 }
+
 .hexagon-in1 {
   overflow: hidden;
   width: 100%;
   height: 100%;
   transform: rotate(-60deg);
 }
+
 .hexagon-in2 {
   width: 100%;
   height: 100%;
@@ -32,6 +41,7 @@ a {
   visibility: visible;
   transform: rotate(-60deg);
 }
+
 .hexagon2 {
   width: 86%;
   height: 100%;
@@ -43,99 +53,264 @@ a {
   .skill {
     position: relative;
     transition: transform .3s ease 0s;
+
     .skillicon {
       img {
-        padding-top: 100%;
+        // padding-top: 100%;
         display: inline-block;
         width: 100%;
-        height: 0;
-        background: center center/cover no-repeat;
+        // height: 0;
+        // background: center center/cover no-repeat;
         transition: all .25s ease 0s;
         filter: grayscale(100%);
       }
     }
+
     .hex-skillcontainer {
       position: relative;
       margin: 15% 0;
       width: 100%;
+
       &:after {
         padding-top: 50%;
         display: block;
         content: '';
       }
+
       .hex {
         height: 100%;
         width: 33%;
       }
+
       .hexagon-in2 {
         background: lighten($black, 10);
       }
+
       .hex {
         overflow: hidden;
         position: absolute;
+
         &:nth-child(1) {
           transform: translate(0, -28%);
         }
+
         &:nth-child(2) {
           transform: translate(50%, 28%);
         }
+
         &:nth-child(3) {
           transform: translate(100%, -28%);
         }
+
         &:nth-child(4) {
           transform: translate(150%, 28%);
         }
+
         &:nth-child(5) {
           transform: translate(200%, -28%);
         }
+
         &.red {
           $time: 0.1s;
           $i: 0;
+
           @for $i from 1 through 5 {
             &:nth-child(#{$i}) .hexagon-in2 {
               transition: .25s ease $time;
             }
+
             $time: $time + 0.2;
           }
         }
       }
     }
+
     .skill-description {
       vertical-align: top;
       display: inline-block;
       cursor: default;
       opacity: 0.1;
-      @media (max-width: $screen-sm-max) {
+
+      @media (max-width: $screen-sm) {
         opacity: 1;
       }
+
       width: 100%;
       padding: 0;
       transition: .25s ease 0s;
     }
-    @media (max-width: $screen-sm-max) {
+
+    @media (max-width: $screen-sm) {
       .hex-skillcontainer .hex.red .hexagon-in2 {
         background: $green-bright;
       }
+
       .skillicon img {
         filter: grayscale(0);
       }
     }
-    @media (max-width: $screen-xs-max) {
+
+    @media (max-width: $screen-xs) {
       flex-basis: percentage(6/12);
     }
-    @media (min-width: $screen-sm-max) {
+
+    @media (min-width: $screen-sm) {
       &:hover {
         transform: scale(1.05);
+
         img {
           filter: grayscale(0);
         }
+
         .skill-description {
           opacity: 1;
         }
+
         .red .hexagon-in2 {
           background: $green-bright;
         }
       }
+    }
+  }
+}
+
+.absolute-cover-md {
+  @media (min-width: $screen-md) {
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.grid {
+  margin: -15px;
+}
+
+.portfolio-item {
+  padding: 15px;
+  overflow: hidden;
+}
+
+.grid-sizer-commercial,
+.size_commercial {
+  width: 100%;
+
+  @media (min-width: $screen-sm) {
+    width: percentage(6/12);
+  }
+
+  @media (min-width: $screen-md) {
+    width: percentage(4/12);
+  }
+}
+
+.grid-sizer {
+  width: 100%;
+
+  @media (min-width: $screen-sm) {
+    width: percentage(4/12);
+  }
+
+  @media (min-width: $screen-md) {
+    width: percentage(3/12);
+  }
+
+  @media (min-width: $screen-lg) {
+    width: percentage(2/12);
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .portfolio-item {
+    .portfolio-text {
+      z-index: 100;
+    }
+
+    .faded-away {
+      .portfolio-text {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+
+      .triangle {
+        opacity: 0;
+      }
+    }
+
+    .card-header {
+      transition: opacity .3s;
+    }
+
+    .fixed-ratio__inner img {
+      overflow: hidden;
+    }
+
+    .fixed-ratio__inner img,
+    .portfolio-text,
+    .triangle {
+      transition: background-color .3s, transform 0.3s, opacity 0.3s, filter 0.3s, border-color .3s;
+    }
+
+    .fixed-ratio__inner img {
+      transition: linear transform 6s !important;
+    }
+
+    >div:hover {
+      z-index: 3333;
+
+      .fixed-ratio__inner img {
+        transform: scale3d(1.1, 1.1, 1);
+        filter: grayscale(0);
+      }
+
+      .card-header {
+        opacity: .1;
+      }
+
+      .portfolio-text {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .triangle {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  }
+}
+
+.triangle {
+  width: 0;
+  transform: scale3d(0.9, 0.9, 0.9);
+  height: 0;
+  border-style: solid;
+  border-width: 0 57px 55px 0;
+  border-color: transparent $green-bright transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 101;
+
+  &:hover {
+    border-color: transparent white transparent;
+    animation-play-state: paused;
+  }
+
+  &.top-right {
+    transform-origin: top right;
+  }
+
+  &.hint {
+    .fa {
+      transform: translate(60%, -20%) rotate(320deg);
+      position: absolute;
+      top: 0;
+      transition: transform .1s;
+      padding: 10px;
+    }
+
+    &:hover .fa {
+      transform: translate(60%, -20%) rotate(320deg) scale(1.3);
     }
   }
 }

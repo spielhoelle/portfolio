@@ -1,13 +1,51 @@
-<article>
-	<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-	<time datetime="{{ .Date.Format "2006-01-02T15:04:05" }}">{{ .Date.Format "02.01.2006 15:04" }}</time>
-	{{ range .Params.tags }}
-	<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-	{{ end }}
-	<div>
-		{{ .Summary }}
-		{{ if .Truncated }}
-			<a href="{{ .Permalink }}">Read more...</a>
-		{{ end }}
+<article class="skill col-lg-4 col-6 text-center mb-4">
+
+
+	<div class="m-md-4 p-md-3">
+		<div class="skillicon p-3">
+			<div class="fixed-ratio--1-to-1">
+				<img class="fixed-ratio__inner" src="/img/skills/{{ .Params.Img }}">
+			</div>
+		</div>
+		<div>
+			<div class="hex-skillcontainer">
+				<div class="hex red">
+					<div class="hexagon hexagon2">
+						<div class="hexagon-in1">
+							<div class="hexagon-in2"></div>
+						</div>
+					</div>
+				</div>
+				<div class="hex red">
+					<div class="hexagon hexagon2">
+						<div class="hexagon-in1">
+							<div class="hexagon-in2"></div>
+						</div>
+					</div>
+				</div>
+				<div class="hex red">
+					<div class="hexagon hexagon2">
+						<div class="hexagon-in1">
+							<div class="hexagon-in2"></div>
+						</div>
+					</div>
+				</div>
+				<div class="hex red">
+					<div class="hexagon hexagon2">
+						<div class="hexagon-in1">
+							<div class="hexagon-in2"></div>
+						</div>
+					</div>
+				</div>
+				<div class="hex red">
+					<div class="hexagon hexagon2">
+						<div class="hexagon-in1">
+							<div class="hexagon-in2"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h1>{{ .Title }}</h1>
 	</div>
 </article>

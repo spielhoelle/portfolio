@@ -1,0 +1,32 @@
+<!-- <article class="col-lg-4 col-6 text-center mb-4">
+	<div>
+		<a href="{{ .Title }}">{{ .Title }}</a>
+		<p>{{.Content}}</p>
+	</div>
+</article> -->
+<div class="card portfolio-item size_s col-lg-4 col-md-6 col-sm-12 mb-5 mb-md-0">
+	<div class="position--relative">
+		<a class="triangle hint top-right" target="_blank" href="{{ .Params.Link }}"><i
+				class="fa fa-arrow-right color-black"></i>
+		</a>
+		<div class="fixed-ratio-md absolute-cover-md card-header p-0 overflow-hidden">
+			<div class="z-index-foreground-3 portfolio-image h-100 fixed-ratio__inner">
+				<a class="" target="_blank" href="{{ .Params.Link }}">
+					<img sizes="100vw" class="w-100 h-100 object-fit_cover" src="/img/projects/{{ .Params.Img }}"
+						alt="Nil project">
+				</a>
+			</div>
+		</div>
+		<div class="background-color-black-transparent card-block d-flex faded-away flex-column p-0 text-center">
+			<div class="portfolio-text d-flex flex-column flex-grow justify-content-center p-4">
+				<h3 class="color-white card-title typed-blink small">{{ .Params.Title}}</h3>
+				<p-0 class="small color-white card-title">
+					{{.Content}}
+				</p-0>
+				<a class="btn btn-primary mt-5  align-self-center " target="_blank"
+					href="{{ .Params.Link }}">www.nil-food.de
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

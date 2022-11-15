@@ -1,20 +1,24 @@
 {{ define "main" }}
 <main>
-	<h1>{{ with .Site.GetPage "section" "skills" }}{{ .Title }}{{ end }}</h1>
-	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-	{{ range $paginator.Pages }}
-	{{ .Render "summary" }}
-	{{ end }}
-	<hr/>
-	
-	<h1>{{ with .Site.GetPage "section" "projects" }}{{ .Title }}{{ end }}</h1>
-	{{ range ( where .Site.RegularPages "Type" "project" ) }}
-	<div>
-		<a href="{{ .Title }}">{{ .Title }}</a>
-		<p>{{.Content}}</p>
+	<div class="skill-group container">
+		<h1>{{ with .Site.GetPage "section" "skills" }}{{ .Title }}{{ end }}</h1>
+		<div class="row">
+			{{ range ( where .Site.RegularPages "Type" "skills" ) }}
+			{{ .Render "summary" }}
+			{{ end }}
+		</div>
 	</div>
-	{{end}}
-	<hr/>
+	<hr />
+
+	<div class="container">
+		<h1>{{ with .Site.GetPage "section" "projects" }}{{ .Title }}{{ end }}</h1>
+		<div class="row">
+			{{ range ( where .Site.RegularPages "Type" "project" ) }}
+			{{ .Render "experience" }}
+			{{end}}
+		</div>
+	</div>
+	<hr />
 
 </main>
 <a href="/contact">Contact</a>
