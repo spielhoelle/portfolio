@@ -8,13 +8,13 @@ Handlebars builds stone-age templates into static html files.
 # Publish flow
 
 ## Build
-`docker build --progress=plain -t ghcr.io/spielhoelle/tommy .`
+`docker build --progress=plain -t ghcr.io/spielhoelle/portfolio .`
 
 ## Run
-`docker run --name tommy --rm -it -p 3000:80 ghcr.io/spielhoelle/tommy:latest`
+`docker run --name portfolio --rm -it -p 3000:80 ghcr.io/spielhoelle/portfolio:latest`
 
 ## Push
-`docker push ghcr.io/spielhoelle/tommy`
+`docker push ghcr.io/spielhoelle/portfolio`
 
 # Dev
 Simply: `docker compose up`
