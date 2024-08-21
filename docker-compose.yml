@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    container_name: tmy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./tmy/:/usr/share/nginx/html
+
+    ports:
+      - 3000:80

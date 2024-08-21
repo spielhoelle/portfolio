@@ -1,0 +1,16 @@
+{
+  "name": "tmy-static",
+  "version": "1.0.0",
+  "description": "## Build `docker build --progress=plain -t ghcr.io/spielhoelle/tommy .` ## Run",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -w src/index.hbs src/compile.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+}
